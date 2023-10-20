@@ -12,8 +12,8 @@ void add(stack_t **doubly, unsigned int line_number)
 
 	if (len < 2)
 	{
-		dprintf(2, "L%u: ", line_number);
-		dprintf(2, "can't add, stack too short\n");
+		fprintf(stderr, "L%u: ", line_number);
+		fprintf(stderr, "can't add, stack too short\n");
 		exit(EXIT_FAILURE);
 	}
 	aux = (*doubly)->next;
@@ -35,14 +35,14 @@ void mod(stack_t **doubly, unsigned int line_number)
 
 	if (len < 2)
 	{
-		dprintf(2, "L%u: ", line_number);
-		dprintf(2, "can't mod, stack too short\n");
+		fprintf(stderr, "L%u: ", line_number);
+		fprintf(stderr, "can't mod, stack too short\n");
 		exit(EXIT_FAILURE);
 	}
 	if ((*doubly)->n == 0)
 	{
-		dprintf(2, "L%u: ", line_number);
-		dprintf(2, "division by zero\n");
+		fprintf(stderr, "L%u: ", line_number);
+		fprintf(stderr, "division by zero\n");
 		exit(EXIT_FAILURE);
 	}
 	aux = (*doubly)->next;
@@ -63,8 +63,8 @@ void sub(stack_t **doubly, unsigned int line_number)
 
 	if (len < 2)
 	{
-		dprintf(2, "L%u: ", line_number);
-		dprintf(2, "can't sub, stack too short\n");
+		fprintf(stderr, "L%u: ", line_number);
+		fprintf(stderr, "can't sub, stack too short\n");
 		free_extern();
 		exit(EXIT_FAILURE);
 	}
@@ -86,15 +86,15 @@ void _div(stack_t **doubly, unsigned int line_number)
 
 	if (len < 2)
 	{
-		dprintf(2, "L%u: ", line_number);
-		dprintf(2, "can't div, stack too short\n");
+		fprintf(stderr, "L%u: ", line_number);
+		fprintf(stderr, "can't div, stack too short\n");
 		free_extern();
 		exit(EXIT_FAILURE);
 	}
 	if ((*doubly)->n == 0)
 	{
-		dprintf(2, "L%u: ", line_number);
-		dprintf(2, "division by zero\n");
+		fprintf(stderr, "L%u: ", line_number);
+		fprintf(stderr, "division by zero\n");
 		free_extern();
 		exit(EXIT_FAILURE);
 	}
@@ -116,8 +116,8 @@ void mul(stack_t **doubly, unsigned int line_number)
 
 	if (len < 2)
 	{
-		dprintf(2, "L%u: ", line_number);
-		dprintf(2, "can't mul, stack too short\n");
+		fprintf(stderr, "L%u: ", line_number);
+		fprintf(stderr, "can't mul, stack too short\n");
 		free_extern();
 		exit(EXIT_FAILURE);
 	}

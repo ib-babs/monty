@@ -26,14 +26,14 @@ FILE *check_file(int ac, char *args[])
 
 	if (ac == 1 || ac > 2)
 	{
-		dprintf(2, "USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	fd = fopen(args[1], "r");
 
 	if (!fd)
 	{
-		dprintf(2, "Error: Can't open file %s\n", args[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", args[1]);
 		exit(EXIT_FAILURE);
 	}
 	return (fd);
@@ -46,9 +46,9 @@ FILE *check_file(int ac, char *args[])
  */
 void execute(int ac, char *args[])
 {
-	ssize_t nlines = 0;
+	ssize_t nlines = 1;
 	FILE *fd;
-	size_t size = 102;
+	size_t size = 1024;
 	char *lines[2] = {NULL, NULL}, *delim = " \t\n";
 
 	void((*f))(stack_t **, unsigned int);
@@ -63,8 +63,8 @@ void execute(int ac, char *args[])
 			f = get_opcode(lines[0]);
 			if (!f)
 			{
-				dprintf(2, "L%u: ", extern_glb.count);
-				dprintf(2, "unknown instruction %s\n", lines[0]);
+				fprintf(stderr, "L%u: ", extern_glb.count);
+				fprintf(stderr, "unknown instruction %s\n", lines[0]);
 				free_extern();
 				exit(EXIT_FAILURE);
 			}

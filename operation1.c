@@ -12,16 +12,16 @@ void push(stack_t **doubly, unsigned int line_number)
 
 	if (!extern_glb.args)
 	{
-		dprintf(2, "L%u: ", line_number);
-		dprintf(2, "usage: push integer\n");
+		fprintf(stderr, "L%u: ", line_number);
+		fprintf(stderr, "usage: push integer\n");
 		exit(EXIT_FAILURE);
 	}
 	for (j = 0; extern_glb.args[j] != '\0'; j++)
 	{
 		if (!isdigit(extern_glb.args[j]) && extern_glb.args[j] != '-')
 		{
-			dprintf(2, "L%u: ", line_number);
-			dprintf(2, "usage: push integer\n");
+			fprintf(stderr, "L%u: ", line_number);
+			fprintf(stderr, "usage: push integer\n");
 			free_extern();
 			exit(EXIT_FAILURE);
 		}
@@ -92,8 +92,8 @@ void swap(stack_t **doubly, unsigned int line_number)
 
 	if (len < 2)
 	{
-		dprintf(2, "L%u: ", line_number);
-		dprintf(2, "can't swap, stack too short\n");
+		fprintf(stderr, "L%u: ", line_number);
+		fprintf(stderr, "can't swap, stack too short\n");
 		free_extern();
 		exit(EXIT_FAILURE);
 	}

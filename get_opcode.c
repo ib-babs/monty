@@ -28,8 +28,8 @@ void check_errors(stack_t **doubly, unsigned int line_number, char *msg)
 {
 	if (!*doubly)
 	{
-		dprintf(2, "L%u: ", line_number);
-		dprintf(2, "%s", msg);
+		fprintf(stderr, "L%u: ", line_number);
+		fprintf(stderr, "%s", msg);
 		free_extern();
 		exit(EXIT_FAILURE);
 	}

@@ -22,8 +22,8 @@ void pchar(stack_t **doubly, unsigned int line_number)
 
 	if (aux->n < 0 || aux->n > 127)
 	{
-		dprintf(2, "L%u: ", line_number);
-		dprintf(2, "can't pchar, value out of range\n");
+		fprintf(stderr, "L%u: ", line_number);
+		fprintf(stderr, "can't pchar, value out of range\n");
 		free_extern();
 		exit(EXIT_FAILURE);
 	}
