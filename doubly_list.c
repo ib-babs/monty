@@ -12,7 +12,7 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		free(new_node);
+		free_extern();
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = n;
@@ -43,7 +43,7 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 	if (newP == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		free(newP);
+		free_extern();
 		exit(EXIT_FAILURE);
 	}
 
@@ -66,10 +66,10 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 	return (newP);
 }
 /**
-* free_dlistint - Free the list
-* @head: Head of the node
-* Return: Void
-*/
+ * free_dlistint - Free the list
+ * @head: Head of the node
+ * Return: Void
+ */
 void free_dlistint(stack_t *head)
 {
 	stack_t *ptr = head;
