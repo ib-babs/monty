@@ -9,8 +9,6 @@
 void push(stack_t **doubly, unsigned int line_number)
 {
 	int j;
-	(void)line_number;
-	(void)doubly;
 
 	if (!extern_glb.args)
 	{
@@ -61,6 +59,7 @@ void pall(stack_t **doubly, unsigned int line_number)
  */
 void pint(stack_t **doubly, unsigned int line_number)
 {
+	(void)line_number;
 	check_errors(doubly, line_number, "can't pint, stack empty\n");
 	printf("%d\n", (*doubly)->n);
 }
@@ -76,8 +75,9 @@ void pop(stack_t **doubly, unsigned int line_number)
 	stack_t *aux;
 
 	check_errors(doubly, line_number, "can't pop an empty stack\n");
-	aux = (*doubly)->next;
-	*doubly = aux;
+	aux = *doubly;
+	*doubly = (*doubly)->next;
+	free(aux);
 }
 /**
  * swap - Swap first two nodes
